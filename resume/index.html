@@ -3,13 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rafael Jimenez Silva - Resume</title>
+    <title>Home</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
         /* Custom CSS for styling */
+
+        @keyframes fadeIn {
+            from {
+            opacity: 0;
+            }
+             to {
+            opacity: 1;
+            }
+        }
         .about-me {
             margin-top: 50px;
         }
@@ -22,30 +31,38 @@
             font-size: 16px;
             line-height: 1.6;
         }
-        .image-section {
-            margin-top: 50px;
-        }
-        .image-section h2 {
-            font-size: 24px;
-            margin-bottom: 20px;
-        }
-        .image-slider {
-            position: relative;
-            height: 200px; /* Set the height of the image container */
-            overflow: hidden; /* Hide overflowing images */
-        }
-        .image-slider img {
-            position: absolute;
-            top: 0;
-            right: 0; /* Position the images to the right */
-            width: 100%; /* Full width */
-            height: auto;
-            opacity: 0; /* Hide images by default */
-            transition: opacity 1s ease-in-out; /* Smooth transition effect */
-        }
-        .image-slider img.active {
-            opacity: 1; /* Show active image */
-        }
+
+    body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f7f7f7;
+    color: #333;
+    margin: 0;
+    padding: 0;
+  }
+
+  .container {
+    width: 90%;
+   
+    max-width: 1100px;
+    margin: 60px auto;
+    padding: 10px;
+    background-color: #fff;
+    
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.5s ease;
+  }
+  html {
+  scroll-behavior: smooth; /* Ensure smooth scrolling behavior */
+ }
+
+.navbar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
     </style>
 </head>
 <body>
@@ -58,21 +75,26 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
 
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="resume.html">Publications</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="portfolio.html">Resume</a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="contact.html">Contact</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="resume.html">Resume</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="https://github.com/rafaeljimenezsilva"><i class="fab fa-github"></i> GitHub</a>
+                    <a class="nav-link" href="https://github.com/rafaeljimenezsilva" target="_blank"><i class="fab fa-github" ></i> GitHub</a>
                 </li>
                 
             </ul>
         </div>
     </nav>
 
-    <div class="container mt-5">
+    <div class="container">
         <header>
             <h1 class="text-center">Rafael Jimenez Silva</h1>
         </header>
@@ -82,21 +104,24 @@
             <h2>About Me</h2>
             <p>
 
+I am a dedicated and passionate individual with a strong background in the tech industry. With over 5 years of experience in data management and analysis, I have honed my skills in [mention relevant skills such as programming languages, technologies, methodologies, etc.]. My journey in the tech sector has equipped me with the expertise to tackle complex challenges and deliver innovative solutions.
+
+Driven by a relentless pursuit of excellence, I thrive in dynamic environments where I can leverage my problem-solving abilities to architect robust systems and optimize processes. I have a proven track record of successfully leading cross-functional teams and collaborating with stakeholders to drive projects from concept to completion.
+
+In addition to my technical prowess, I possess excellent communication skills that allow me to effectively convey technical concepts to non-technical stakeholders and foster a culture of collaboration and knowledge sharing within teams.
+
+I am deeply passionate about [specific interests or areas within the tech industry, such as artificial intelligence, cybersecurity, software engineering, etc.] and am committed to staying abreast of emerging technologies and industry trends to continuously enhance my skill set and deliver value to my organization.
+
+As a forward-thinking professional, I am excited about the opportunity to contribute to innovative projects that have a positive impact on society and shape the future of technology.
+
             </p>
 
             <p>
-                Integer sit amet ligula vel ex pulvinar vehicula. Duis id ex orci. Nam a vehicula elit. Phasellus sed mauris tincidunt, commodo velit at, scelerisque velit. Vivamus suscipit eleifend ligula, eget pellentesque erat consectetur nec. Cras at massa at felis tincidunt pellentesque nec nec dolor. Nulla facilisi. Vivamus ultrices lacinia velit, et posuere ipsum scelerisque eu.
+              
             </p>
         </section>
 
-        <!-- Image section -->
-        <section class="image-section">
-            <h2>My Images</h2>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="image-slider">
-                        <img src="image1.jpg" alt="Image 1" class="active">
-                        <img src="image2.jpg" alt="Image 2">
-                        <img src="image3.jpg" alt="Image 3">
-                    </div>
-                </div>
+
+    </body>
+
+       

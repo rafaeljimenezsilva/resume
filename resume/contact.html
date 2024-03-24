@@ -3,13 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name - Contact</title>
+    <title>Contact</title>
     
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <style>
+
+@keyframes fadeIn {
+            from {
+            opacity: 0;
+            }
+             to {
+            opacity: 1;
+            }
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+        body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f7f7f7;
+    color: #333;
+    margin: 0;
+    padding: 0;
+  }
+  .container {
+   
+   
+
+  
+   animation: fadeIn 0.5s ease;
+ }
+ html {
+ scroll-behavior: smooth; /* Ensure smooth scrolling behavior */
+}
+    </style>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -20,15 +57,19 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
+            
+                <li class="nav-item">
+                    <a class="nav-link" href="resume.html">Publications</a>
+                </li>
 
+                <li class="nav-item">
+                    <a class="nav-link" href="portfolio.html">Resume</a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="contact.html">Contact</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="resume.html">Resume</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="https://github.com/rafaeljimenezsilva"><i class="fab fa-github"></i> GitHub</a>
+                    <a class="nav-link" href="https://github.com/rafaeljimenezsilva" target="_blank"><i class="fab fa-github" ></i> GitHub</a>
                 </li>
             </ul>
         </div>

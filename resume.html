@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Publications</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<style>
+  /* Custom CSS for the CV */
+  body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f7f7f7;
+    color: #333;
+    margin: 0;
+    padding: 0;
+  }
+  .navbar {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+  .container {
+    width: 90%;
+   
+    max-width: 1100px;
+    margin: 60px auto;
+    padding: 10px;
+    background-color: #fff;
+    
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.5s ease;
+  }
+  html {
+  scroll-behavior: smooth; /* Ensure smooth scrolling behavior */
+ }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    
+    margin-bottom: 20px;
+  }
+
+  .section-title {
+    border-bottom: 2px solid;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+  }
+
+  .pdf-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    position: relative; /* Added for button positioning */
+  }
+
+  .pdf-item {
+    width: 150px;
+    height: 250px;
+    margin: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    position: relative;
+  }
+
+  .pdf-item img {
+    width: 100%;
+    height: 90%;
+    object-fit: cover;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+  }
+
+  .pdf-item:hover {
+    transform: scale(1.05);
+  }
+
+  .pdf-item-name {
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 5px 0;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+
+  .btn-back {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: none; /* Initially hide */
+  }
+
+  .search-input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+
+  .hidden {
+    display: none;
+  }
+</style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="index.html">Home</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="resume.html">Publications</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="portfolio.html">Resume</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="contact.html">Contact</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="https://github.com/rafaeljimenezsilva" target="_blank"><i class="fab fa-github" ></i> GitHub</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container">
+    <h2 id="publications" class="section-title">Publications</h2>
+    <input type="text" class="search-input" id="searchInput" placeholder="Search by paper name...">
+    <div class="pdf-container" id="pdfContainer"></div>
+    <button class="btn btn-primary btn-back" onclick="goBack()">Back</button>
+</div>
+
+<!-- Include PDF.js library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
+
+<script>
+    let pdfOpen = false; // To track if a PDF is open or not
+    // Array of PDF files with corresponding image previews
+    const pdfFiles = [
+        { name: 'paper 01', 
+          url: 'publications/QA4IE A Quality Assurance Tool for Information Extraction - 2022.lrec-1.478.pdf', 
+          preview: 'publications/qa4ie_preview.png' },
+          { name: 'paper 02', 
+          url: 'publications/QA4IE A Quality Assurance Tool for Information Extraction - 2022.lrec-1.478.pdf', 
+          preview: 'publications/qa4ie_preview.png' },
+          { name: 'paper 03', 
+          url: 'publications/QA4IE A Quality Assurance Tool for Information Extraction - 2022.lrec-1.478.pdf', 
+          preview: 'publications/qa4ie_preview.png' },
+          { name: 'paper 04', 
+          url: 'publications/QA4IE A Quality Assurance Tool for Information Extraction - 2022.lrec-1.478.pdf', 
+          preview: 'publications/qa4ie_preview.png' },
+          { name: 'paper 05', 
+          url: 'publications/QA4IE A Quality Assurance Tool for Information Extraction - 2022.lrec-1.478.pdf', 
+          preview: 'publications/qa4ie_preview.png' },
+          { name: 'paper 06', 
+          url: 'publications/QA4IE A Quality Assurance Tool for Information Extraction - 2022.lrec-1.478.pdf', 
+          preview: 'publications/qa4ie_preview.png' },
+          { name: 'paper 07', 
+          url: 'publications/QA4IE A Quality Assurance Tool for Information Extraction - 2022.lrec-1.478.pdf', 
+          preview: 'publications/qa4ie_preview.png' },
+          { name: 'paper 08', 
+          url: 'publications/QA4IE A Quality Assurance Tool for Information Extraction - 2022.lrec-1.478.pdf', 
+          preview: 'publications/qa4ie_preview.png' },
+          { name: 'paper 09', 
+          url: 'publications/QA4IE A Quality Assurance Tool for Information Extraction - 2022.lrec-1.478.pdf', 
+          preview: 'publications/qa4ie_preview.png' },
+          { name: 'paper 10', 
+          url: 'publications/QA4IE A Quality Assurance Tool for Information Extraction - 2022.lrec-1.478.pdf', 
+          preview: 'publications/qa4ie_preview.png' },
+          { name: 'paper 11', 
+          url: 'publications/QA4IE A Quality Assurance Tool for Information Extraction - 2022.lrec-1.478.pdf', 
+          preview: 'publications/qa4ie_preview.png' },
+          { name: 'paper 12', 
+          url: 'publications/QA4IE A Quality Assurance Tool for Information Extraction - 2022.lrec-1.478.pdf', 
+          preview: 'publications/qa4ie_preview.png' }
+        // Add more PDF files here
+    ];
+
+    // Render PDF files
+    function renderPDFs(searchText = '') {
+        const pdfContainer = document.getElementById('pdfContainer');
+        pdfContainer.innerHTML = ''; // Clear previous content
+
+        // Filter PDF files based on search text
+        const filteredFiles = pdfFiles.filter(file => file.name.toLowerCase().includes(searchText.toLowerCase()));
+
+        // Render filtered PDF files
+        filteredFiles.forEach((file, index) => {
+            const pdfItem = document.createElement('div');
+            pdfItem.classList.add('pdf-item');
+            pdfItem.innerHTML = `
+                <img src="${file.preview}" alt="${file.name}" onclick="renderPDF('${file.url}', '${file.name}')">
+                <div class="pdf-item-name">${file.name}</div>
+            `;
+            pdfContainer.appendChild(pdfItem);
+        });
+
+        const searchInput = document.getElementById('searchInput');
+        if (pdfOpen) {
+            searchInput.classList.add('hidden');
+        } else {
+            searchInput.classList.remove('hidden');
+        }
+        
+    }
+
+    // Function to render PDF
+    async function renderPDF(url, name) {
+        const pdfContainer = document.getElementById('pdfContainer');
+
+        // Clear previous content
+        pdfContainer.innerHTML = '';
+
+        // Show PDF container
+        pdfContainer.style.display = 'block';
+
+        //searchInput.classList.add('hidden')
+        // Hide search input
+        const searchInput = document.getElementById('searchInput');
+        searchInput.value = ''; // Clear search contents
+        searchInput.classList.add('hidden');
+
+        // Show back button
+        document.querySelector('.btn-back').style.display = 'block';
+
+        // Initialize PDF.js
+        const pdfjsLib = window['pdfjs-dist/build/pdf'];
+
+        // Fetch the PDF document
+        const pdfDoc = await pdfjsLib.getDocument(url).promise;
+        
+        // Loop through each page and render it
+        for (let pageNumber = 1; pageNumber <= pdfDoc.numPages; pageNumber++) {
+            // Create a canvas element for each page
+            const canvas = document.createElement('canvas');
+            canvas.className = 'pdf-page'; // Add a class for styling
+            pdfContainer.appendChild(canvas);
+
+            
+
+            // Get the page
+            const page = await pdfDoc.getPage(pageNumber);
+
+            // Set the canvas dimensions
+            const viewport = page.getViewport({ scale: 1 });
+            canvas.height = viewport.height;
+            canvas.width = viewport.width;
+
+            // Render the page on the canvas
+            await page.render({
+                canvasContext: canvas.getContext('2d'),
+                viewport: viewport        // Hide search input if a PDF is open
+        
+            }).promise;
+            
+
+                
+            
+
+            
+        }
+    }
+
+    // Go back to the PDF previews
+    function goBack() {
+        window.location.reload(); // Reload the page
+ 
+    }
+
+    // Call the renderPDFs function to initialize
+    
+    renderPDFs();
+
+    // Search input event listener
+    document.getElementById('searchInput').addEventListener('input', function(event) {
+        
+        renderPDFs(event.target.value);
+        
+    });
+</script>
+
+</body>
+</html>
+

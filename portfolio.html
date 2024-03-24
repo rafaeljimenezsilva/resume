@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resume</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<style>
+  /* Custom CSS for the CV */
+
+/* Back to Top Button */
+.back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  display: none;
+  text-decoration: none;
+  opacity: 0; /* Start with opacity 0 */
+  transition: opacity 0.3s ease, transform 0.3s ease; /* Add transition for opacity and transform */
+}
+
+.back-to-top:hover {
+  opacity: 0.8;
+  transform: scale(1.1); /* Add scale effect on hover for visual feedback */
+}
+  body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f7f7f7;
+    color: #333;
+    margin: 0;
+    padding: 0;
+  }
+
+  .container {
+    width: 90%;
+   
+    max-width: 1100px;
+    margin: 60px auto;
+    padding: 10px;
+    background-color: #fff;
+    
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.5s ease;
+  }
+  html {
+  scroll-behavior: smooth; /* Ensure smooth scrolling behavior */
+ }
+
+ 
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    
+    margin-bottom: 20px;
+  }
+
+  .section-title {
+    border-bottom: 2px solid;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+  }
+
+  .btn {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .btn:hover {
+    background-color: #0056b3;
+  }
+
+  .resume-item {
+    margin-bottom: 30px;
+    border-left: 3px solid;
+    padding-left: 15px;
+    transition: transform 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  .resume-item:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(0,123,255,0.2), rgba(0,123,255,0));
+    z-index: -1;
+    transition: transform 0.8s ease;
+    transform: translateX(-100%);
+  }
+
+  .resume-item:hover:before {
+    transform: translateX(0);
+  }
+
+  .resume-item:hover {
+    transform: scale(1.02);
+  }
+
+  .resume-item .icon {
+    font-size: 24px;
+    margin-right: 10px;
+    color: #007bff;
+  }
+
+  .resume-item .content {
+    padding-left: 15px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .resume-item .additional-info {
+    display: none;
+    margin-top: 10px;
+  }
+
+  .resume-item.open .additional-info {
+    display: block;
+  }
+
+  .skills {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  .skills li {
+    margin-bottom: 10px;
+  }
+
+  .skills .progress {
+    height: 8px;
+    margin-bottom: 5px;
+  }
+
+  .skills .progress-bar {
+    border-radius: 5px;
+  }
+
+  .navbar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    z-index: 1000;
+  }
+
+  .sidebar {
+    position: fixed;
+    top: 60px; /* Adjusted to leave space for the fixed navbar */
+    left: 0;
+    width: 200px;
+    background-color: #f7f7f7;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    z-index: 1000;
+    overflow-y: auto;
+    transition: background-color 0.60s ease;
+    height: calc(100% - 60px); /* Adjusted to fit the remaining height */
+  }
+
+  .sidebar ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  .sidebar li {
+    margin-bottom: 10px;
+  }
+
+  .sidebar a {
+    text-decoration: none;
+    color: #333;
+    transition: color 0.3s ease;
+  }
+
+  .sidebar a:hover {
+    color: #007bff;
+  }
+</style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <a class="navbar-brand" href="index.html">Home</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+
+            <li class="nav-item">
+                <a class="nav-link" href="resume.html">Publications</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="portfolio.html">Resume</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="contact.html">Contact</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="https://github.com/rafaeljimenezsilva" target="_blank"><i class="fab fa-github" ></i> GitHub</a>
+            </li>
+            
+        </ul>
+    </div>
+</nav>
+
+    <div class="sidebar">
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#publications">Publications</a></li>
+            <li><a href="#certifications">Certifications</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+
+
+<div class="container">
+  <header>
+    <h1 class="text-center mb-4">My name</h1>
+    <h2 class="text-center mb-4">Job Title</h2>
+  </header>
+
+  <section id = "about" class="resume-section">
+    <h3 class="section-title">About Me</h3>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquet leo in metus ultricies blandit.</p>
+  </section>
+
+  <section id = "experience" class="resume-section">
+    <h3 class="section-title">Experience</h3>
+    <div class="resume-item" onclick="toggleAdditionalInfo(this)">
+      <div class="icon"><i class="fas fa-briefcase"></i></div>
+      <div class="content">
+        <h4>Job Title</h4>
+        <p>Company ABC (2018 - Present)</p>
+        
+        <div class="additional-info">
+            <ul>
+                <li>Did some work</li>
+                <li>Implemented some things</li>
+              </ul>
+          <p>Additional information about the experience...</p>
+          <p>More additional info</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id = "projects" class="resume-section">
+    <h3 class="section-title">Projects</h3>
+    <div class="resume-item" onclick="toggleAdditionalInfo(this)">
+      <div class="icon"><i class="fas fa-code"></i></div>
+      <div class="content">
+        <h4>Project 1</h4>
+        <p>Description of Project 1.</p>
+        <div class="additional-info">
+          <p>Additional information about the project...</p>
+        </div>
+      </div>
+    </div>
+    <div class="resume-item" onclick="toggleAdditionalInfo(this)">
+      <div class="icon"><i class="fas fa-code"></i></div>
+      <div class="content">
+        <h4>Project 2</h4>
+        <p>Description of Project 2.</p>
+        <div class="additional-info">
+          <p>Additional information about the project...</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id = "publications" class="resume-section">
+    <h3 class="section-title">Publications</h3>
+    
+    <div class="resume-item" onclick="toggleAdditionalInfo(this)">
+        <div class="icon"><i class="fas fa-book"></i></div>
+        <div class="content">
+          <h4>Publication 1</h4>
+          <p>Description of Publication 1.</p>
+          <div class="additional-info">
+            <p>Additional information about the publication...</p>
+          </div>
+        </div>
+      </div>
+      <div class="resume-item" onclick="toggleAdditionalInfo(this)">
+        <div class="icon"><i class="fas fa-book"></i></div>
+        <div class="content">
+          <h4>Publication 2</h4>
+          <p>Description of Publication 2.</p>
+          <div class="additional-info">
+            <p>Additional information about the publication...</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+    <section id = "certifications" class="resume-section">
+      <h3 class="section-title">Certifications</h3>
+      <div class="resume-item" onclick="toggleAdditionalInfo(this)">
+        <div class="icon"><i class="fas fa-certificate"></i></div>
+        <div class="content">
+          <h4>Certification 1</h4>
+          <p>Description of Certification 1.</p>
+          <div class="additional-info">
+            <p>Additional information about the certification...</p>
+          </div>
+        </div>
+      </div>
+      <div class="resume-item" onclick="toggleAdditionalInfo(this)">
+        <div class="icon"><i class="fas fa-certificate"></i></div>
+        <div class="content">
+          <h4>Certification 2</h4>
+          <p>Description of Certification 2.</p>
+          <div class="additional-info">
+            <p>Additional information about the certification...</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+    <section id = "skills" class="resume-section">
+      <h3 class="section-title">Skills</h3>
+      <ul class="skills">
+        <li>
+          HTML/CSS
+          <div class="progress">
+            <div class="progress-bar bg-success" role="progressbar" style="width: 90%;" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+        </li>
+        <li>
+          JavaScript
+          <div class="progress">
+            <div class="progress-bar bg-info" role="progressbar" style="width: 80%;" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+        </li>
+        <li>
+          React.js
+          <div class="progress">
+            <div class="progress-bar bg-warning" role="progressbar" style="width: 85%;" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+        </li>
+      </ul>
+    </section>
+  
+    <section id = "contact" class="resume-section">
+      <h3 class="section-title">Contact</h3>
+      <p>Email: johndoe@example.com</p>
+      <p>Phone: +1234567890</p>
+     
+    </section>
+
+      <!-- Back to Top Button -->
+  <a href="#" class="back-to-top">Back to Top</a>
+  </div>
+  
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+    const links = document.querySelectorAll('.sidebar a');
+
+    links.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+
+            const targetId = this.getAttribute('href').substring(1);
+            const targetElement = document.getElementById(targetId);
+            
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop - 60, // Adjusted to accommodate fixed navbar height
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+});
+  function toggleAdditionalInfo(element) {
+    element.classList.toggle('open');
+  }
+// JavaScript for Back to Top Button
+const backToTopButton = document.querySelector('.back-to-top');
+
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 300) {
+    backToTopButton.style.display = 'block';
+    backToTopButton.style.opacity = '1'; // Ensure the button is fully visible when displayed
+  } else {
+    backToTopButton.style.display = 'none';
+  }
+});
+
+backToTopButton.addEventListener('click', () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+});
+
+  </script>
+  </body>
+  </html>
+  

@@ -9,8 +9,6 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <style>
 
 @keyframes fadeIn {
@@ -109,13 +107,18 @@
         </div>
 
 
-<script>
+    <!-- Bootstrap JS and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JavaScript for smooth menu toggle -->
+    <script>
         $(document).ready(function(){
             $('.navbar-toggler').on('click', function(){
-                $('.navbar-collapse').toggleClass('show');
+                $(this).toggleClass('collapsed');
+                $('#navbarSupportedContent').toggleClass('show');
             });
         });
-</script>
+    </script>
         
 
 </body>
